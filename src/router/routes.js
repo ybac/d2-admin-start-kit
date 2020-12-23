@@ -49,6 +49,123 @@ const frameIn = [
         },
         component: _import('demo/page3')
       },
+      {
+        path: 'order',
+        name: 'order',
+        meta: {
+          title: '订单管理',
+          auth: true
+        },
+        component: _import('demo/order/pag')
+      },
+      {
+        path: 'luru',
+        name: 'luru',
+        meta: {
+          title: '手动录入',
+          auth: true
+        },
+        component: _import('demo/order/luru')
+      },
+      {
+        path: 'hist',
+        name: 'hist',
+        meta: {
+          title: '历史订单查询',
+          auth: true
+        },
+        component: _import('demo/order/hist')
+      },
+      {
+        path: 'jiexi',
+        name: 'jiexi',
+        meta: {
+          title: '订单解析',
+          auth: true
+        },
+        component: _import('demo/order/jiexi')
+      },
+      {
+        path: 'yclgl',
+        name: 'yclgl',
+        meta: {
+          title: '原材料管理',
+          auth: true
+        },
+        component: _import('demo/wuliao/yclgl')
+      },
+      {
+        path: 'scwlgl',
+        name: 'scwlgl',
+        meta: {
+          title: '生产物料管理',
+          auth: true
+        },
+        component: _import('demo/wuliao/scwlgl')
+      },
+      {
+        path: 'slgl',
+        name: 'slgl',
+        meta: {
+          title: '上料管理',
+          auth: true
+        },
+        component: _import('demo/wuliao/slgl')
+      },
+      {
+        path: 'product',
+        name: 'product',
+        meta: {
+          title: '生产管理',
+          auth: true
+        },
+        component: _import('demo/product')
+      },
+      {
+        path: 'zhiliang',
+        name: 'zhiliang',
+        meta: {
+          title: '质量控制',
+          auth: true
+        },
+        component: _import('demo/zhiliang')
+      },
+      {
+        path: 'oee',
+        name: 'oee',
+        meta: {
+          title: 'OEE',
+          auth: true
+        },
+        component: _import('demo/oee')
+      },
+      {
+        path: 'scddgl',
+        name: 'scddgl',
+        meta: {
+          title: '生产调度管理',
+          auth: true
+        },
+        component: _import('demo/scddgl')
+      },
+      {
+        path: 'war',
+        name: 'war',
+        meta: {
+          title: '报警记录',
+          auth: true
+        },
+        component: _import('demo/war')
+      },
+      {
+        path: 'peifang',
+        name: 'peifang',
+        meta: {
+          title: '配方管理',
+          auth: true
+        },
+        component: _import('demo/feifang')
+      },
       // 系统 前端日志
       {
         path: 'log',
