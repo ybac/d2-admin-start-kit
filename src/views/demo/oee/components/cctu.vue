@@ -9,7 +9,6 @@
 </template>
 
 <script>
-// 使用前需先引入对应模块
 import 'echarts/lib/component/markLine'
 import 'echarts/lib/component/markPoint'
 export default {
