@@ -2,172 +2,29 @@
   <d2-container>
     <el-tabs v-model="activeName" @tab-click="handleClick">
       <el-tab-pane label="一号产线" name="first">
-        <el-table
-          :data="tableData1"
-          border
-          style="width: 100%">
-          <el-table-column
-            prop="a"
-            label="物料名称">
-          </el-table-column>
-          <el-table-column
-            prop="b"
-            label="物料编号">
-          </el-table-column>
-          <el-table-column
-            prop="c"
-            label="上料总量">
-          </el-table-column>
-          <el-table-column
-            prop="d"
-            label="剩余数量">
-          </el-table-column>
-          <el-table-column
-            prop="e"
-            label="缺料报警">
-          </el-table-column>
-        </el-table>
+        <tab :tableData="tableData1" />
       </el-tab-pane>
       <el-tab-pane label="二号产线" name="second">
-        <el-table
-          :data="tableData2"
-          border
-          style="width: 100%">
-          <el-table-column
-            prop="a"
-            label="物料名称">
-          </el-table-column>
-          <el-table-column
-            prop="b"
-            label="物料编号">
-          </el-table-column>
-          <el-table-column
-            prop="c"
-            label="上料总量">
-          </el-table-column>
-          <el-table-column
-            prop="d"
-            label="剩余数量">
-          </el-table-column>
-          <el-table-column
-            prop="e"
-            label="缺料报警">
-          </el-table-column>
-        </el-table>
+        <tab :tableData="tableData2" />
       </el-tab-pane>
       <el-tab-pane label="三号产线" name="third">
-        <el-table
-          :data="tableData1"
-          border
-          style="width: 100%">
-          <el-table-column
-            prop="a"
-            label="物料名称">
-          </el-table-column>
-          <el-table-column
-            prop="b"
-            label="物料编号">
-          </el-table-column>
-          <el-table-column
-            prop="c"
-            label="上料总量">
-          </el-table-column>
-          <el-table-column
-            prop="d"
-            label="剩余数量">
-          </el-table-column>
-          <el-table-column
-            prop="e"
-            label="缺料报警">
-          </el-table-column>
-        </el-table>
+        <tab :tableData="tableData1" />
       </el-tab-pane>
       <el-tab-pane label="四号产线" name="fourth">
-        <el-table
-          :data="tableData2"
-          border
-          style="width: 100%">
-          <el-table-column
-            prop="a"
-            label="物料名称">
-          </el-table-column>
-          <el-table-column
-            prop="b"
-            label="物料编号">
-          </el-table-column>
-          <el-table-column
-            prop="c"
-            label="上料总量">
-          </el-table-column>
-          <el-table-column
-            prop="d"
-            label="剩余数量">
-          </el-table-column>
-          <el-table-column
-            prop="e"
-            label="缺料报警">
-          </el-table-column>
-        </el-table>
+        <tab :tableData="tableData2" />
       </el-tab-pane>
       <el-tab-pane label="五号产线" name="fiveth">
-        <el-table
-          :data="tableData1"
-          border
-          style="width: 100%">
-          <el-table-column
-            prop="a"
-            label="物料名称">
-          </el-table-column>
-          <el-table-column
-            prop="b"
-            label="物料编号">
-          </el-table-column>
-          <el-table-column
-            prop="c"
-            label="上料总量">
-          </el-table-column>
-          <el-table-column
-            prop="d"
-            label="剩余数量">
-          </el-table-column>
-          <el-table-column
-            prop="e"
-            label="缺料报警">
-          </el-table-column>
-        </el-table>
+        <tab :tableData="tableData1" />
       </el-tab-pane>
       <el-tab-pane label="六号产线" name="sixth">
-        <el-table
-          :data="tableData2"
-          border
-          style="width: 100%">
-          <el-table-column
-            prop="a"
-            label="物料名称">
-          </el-table-column>
-          <el-table-column
-            prop="b"
-            label="物料编号">
-          </el-table-column>
-          <el-table-column
-            prop="c"
-            label="上料总量">
-          </el-table-column>
-          <el-table-column
-            prop="d"
-            label="剩余数量">
-          </el-table-column>
-          <el-table-column
-            prop="e"
-            label="缺料报警">
-          </el-table-column>
-        </el-table>
+        <tab :tableData="tableData2" />
       </el-tab-pane>
     </el-tabs>
   </d2-container>
 </template>
 
 <script>
+import tab from './components/table'
 export default {
   name: 'slgl',
   data () {
@@ -236,6 +93,9 @@ export default {
         e: '正常'
       }]
     }
+  },
+  components: {
+    tab
   },
   methods: {
     handleClick (tab, event) {

@@ -24,7 +24,8 @@ export const menuHeader = supplementPath([
       { path: '/order', title: '订单接收' },
       { path: '/luru', title: '手动录入' },
       { path: '/hist', title: '历史订单查询' },
-      { path: '/jiexi', title: '订单解析' }
+      { path: '/jiexi', title: '订单解析' },
+      { path: '/table', title: 'table' }
     ]
   },
   {
@@ -53,7 +54,8 @@ export const menuAside = supplementPath([
       { path: '/order', title: '订单接收' },
       { path: '/luru', title: '手动录入' },
       { path: '/hist', title: '历史订单查询' },
-      { path: '/jiexi', title: '订单解析' }
+      { path: '/jiexi', title: '订单解析' },
+      { path: '/table', title: 'table' }
     ]
   },
   {

@@ -1,19 +1,5 @@
 <template>
-  <d2-container>
-    <el-form :inline="true" :model="formInline" class="demo-form-inline">
-      <el-form-item label="报警时间">
-        <el-date-picker
-          v-model="formInline.date1"
-          type="datetimerange"
-          range-separator="至"
-          start-placeholder="开始日期"
-          end-placeholder="结束日期">
-        </el-date-picker>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="onSubmit">查询</el-button>
-      </el-form-item>
-    </el-form>
+  <div>
     <el-table :data="master_user.data" border style="width: 100%" highlight-current-row>
       <!-- <el-table-column type="index"></el-table-column> -->
       <el-table-column v-for="(v, i) in master_user.columns" :key="i" :prop="v.field" :label="v.title" :width="v.width">
@@ -42,19 +28,15 @@
         </template>
       </el-table-column>
     </el-table>
-  </d2-container>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'war',
+  props: ['tableData'],
+  name: 'slgl-table',
   data () {
     return {
-      formInline: {
-        user: '',
-        region: '',
-        date1: [new Date(2020, 10, 10, 10, 10), new Date(2020, 10, 11, 10, 10)]
-      },
       generateId: {
         _count: 1,
         get () {
@@ -63,60 +45,16 @@ export default {
           )
         }
       },
-      tableData: [],
       master_user: {
         sel: null, // 选中行
         columns: [
-          { field: 'a', title: '报警时间' },
-          { field: 'b', title: '报警设备' },
-          { field: 'c', title: '报警信息' },
-          { field: 'd', title: '确认时间' },
-          { field: 'e', title: '解除时间' },
-          { field: 'f', title: '确认人' }
+          { field: 'a', title: '物料名称' },
+          { field: 'b', title: '物料编号' },
+          { field: 'c', title: '上料总量' },
+          { field: 'd', title: '剩余数量' },
+          { field: 'e', title: '缺料报警' }
         ],
-        data: [{
-          a: '2020-11-10 04:00:12',
-          b: 'SB20201102',
-          c: '电路异常',
-          d: '2020-11-10 04：33：11',
-          e: '2020-11-10 04：44：11',
-          f: '刘华'
-        }, {
-          a: '2020-12-01 13:45:56',
-          b: 'SB20202203',
-          c: '缺料',
-          d: '2020-12-02 23：32：18',
-          e: '2020-11-03 01：14：56',
-          f: '李曼'
-        }, {
-          a: '2020-11-10 04:00:12',
-          b: 'SB20201102',
-          c: '电路异常',
-          d: '2020-11-10 04：33：11',
-          e: '2020-11-10 04：44：11',
-          f: '刘华'
-        }, {
-          a: '2020-12-01 13:45:56',
-          b: 'SB20202203',
-          c: '缺料',
-          d: '2020-12-02 23：32：18',
-          e: '2020-11-03 01：14：56',
-          f: '王磊'
-        }, {
-          a: '2020-11-10 04:00:12',
-          b: 'SB20201102',
-          c: '电路异常',
-          d: '2020-11-10 04：33：11',
-          e: '2020-11-10 04：44：11',
-          f: '张思德'
-        }, {
-          a: '2020-12-01 13:45:56',
-          b: 'SB20202203',
-          c: '缺料',
-          d: '2020-12-02 23：32：18',
-          e: '2020-11-03 01：14：56',
-          f: '刘华'
-        }]
+        data: this.tableData
       }
     }
   },
