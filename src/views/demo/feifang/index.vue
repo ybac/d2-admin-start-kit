@@ -14,6 +14,7 @@
       stripe
       height="500"
       highlight-current-row
+      :row-class-name="tableRowClassName"
       style="width: 100%">
       <el-table-column
         prop="a"
@@ -328,6 +329,13 @@ export default {
       this.tit = '修改:' + row.a
       this.form = Object.assign({}, row)
       this.num = i
+    },
+    tableRowClassName ({ row, rowIndex }) {
+      if (rowIndex % 2 === 0) {
+        return 'warning-row'
+      } else {
+        return 'success-row'
+      }
     },
     cancel () {
       Object.keys(this.form).forEach(key => { this.form[key] = '' })

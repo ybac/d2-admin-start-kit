@@ -166,15 +166,6 @@ const frameIn = [
         },
         component: _import('demo/feifang')
       },
-      {
-        path: 'table',
-        name: 'table',
-        meta: {
-          title: 'table',
-          auth: true
-        },
-        component: _import('demo/order/table')
-      },
       // 系统 前端日志
       {
         path: 'log',

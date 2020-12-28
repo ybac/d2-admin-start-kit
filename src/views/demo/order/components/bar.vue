@@ -1,16 +1,13 @@
 <template>
-  <div style="width:100%;overflow:hidden;padding:0 50px">
+  <div class="box">
     <ve-histogram
       :data="chartData"
-      width="500px"
       height="320px"
-      style="float:left"
+      style="width:50%"
       :extend="chartExtend"></ve-histogram>
     <ve-pie
       :data="chartData"
-      width="500px"
-      height="320px"
-      style="float:right;margin-top:-50px"
+      style="width:50%;height:100%;margin-top:-60px"
       :extend="chartExtend"></ve-pie>
   </div>
 </template>
@@ -40,6 +37,26 @@ export default {
         ]
       }
     }
+  },
+  mounted () {
+    console.log(this.getStyle())
+  },
+  methods: {
+    getStyle () {
+      var style = null
+      var a = document.querySelector('.box')
+      window.getComputedStyle ? style = window.getComputedStyle(a) : style = a.currentStyle
+      return style.width
+    }
   }
 }
 </script>
+
+<style scoped>
+.box {
+  display: flex;
+  justify-content: center;
+  width:100%;
+  overflow:hidden;
+}
+</style>

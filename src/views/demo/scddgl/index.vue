@@ -1,7 +1,7 @@
 <template>
   <d2-container>
     <template slot="header">
-      <el-table size="mini" :data="master_user.data" border height="200" style="width: 100%" highlight-current-row>
+      <el-table size="mini" :data="master_user.data" border height="200" style="width: 100%" highlight-current-row :row-class-name="tableRowClassName">
         <!-- <el-table-column type="index"></el-table-column> -->
         <el-table-column v-for="(v, i) in master_user.columns" :key="i" :prop="v.field" :label="v.title" :width="v.width">
           <template slot-scope="scope">
@@ -94,6 +94,13 @@ export default {
     onSubmit () {
       console.log('submit!')
     },
+    tableRowClassName ({ row, rowIndex }) {
+      if (rowIndex % 2 === 0) {
+        return 'warning-row'
+      } else {
+        return 'success-row'
+      }
+    },
     // 读取表格数据
     readMasterUser () {
       // 根据实际情况，自己改下啊
@@ -168,7 +175,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style>
 .wrap {
   width: 100%;
   height: 100%;

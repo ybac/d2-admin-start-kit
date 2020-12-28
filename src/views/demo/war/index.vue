@@ -14,7 +14,7 @@
         <el-button type="primary" @click="onSubmit">查询</el-button>
       </el-form-item>
     </el-form>
-    <el-table :data="master_user.data" border style="width: 100%" highlight-current-row>
+    <el-table :data="master_user.data" border style="width: 100%" highlight-current-row :row-class-name="tableRowClassName">
       <!-- <el-table-column type="index"></el-table-column> -->
       <el-table-column v-for="(v, i) in master_user.columns" :key="i" :prop="v.field" :label="v.title" :width="v.width">
         <template slot-scope="scope">
@@ -123,6 +123,13 @@ export default {
   methods: {
     onSubmit () {
       console.log('submit!')
+    },
+    tableRowClassName ({ row, rowIndex }) {
+      if (rowIndex % 2 === 0) {
+        return 'warning-row'
+      } else {
+        return 'success-row'
+      }
     },
     // 读取表格数据
     readMasterUser () {
