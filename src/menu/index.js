@@ -41,7 +41,22 @@ export const menuHeader = supplementPath([
   { path: '/oee', title: 'OEE', icon: 'folder-o' },
   { path: '/scddgl', title: '生产调度管理', icon: 'folder-o' },
   { path: '/war', title: '报警记录', icon: 'folder-o' },
-  { path: '/peifang', title: '配方管理', icon: 'folder-o' }
+  { path: '/peifang', title: '配方管理', icon: 'folder-o' },
+  {
+    title: '综合数据管理',
+    icon: 'folder-o',
+    children: [
+      { path: '/cpzs', title: '产品追溯' },
+      {
+        title: '历史数据',
+        icon: 'folder-o',
+        children: [
+          { path: '/scsj', title: '生产数据' },
+          { path: '/plsj', title: '配料数据' }
+        ]
+      }
+    ]
+  }
 ])
 
 export const menuAside = supplementPath([
@@ -70,5 +85,20 @@ export const menuAside = supplementPath([
   { path: '/oee', title: 'OEE', icon: 'folder-o' },
   { path: '/scddgl', title: '生产调度管理', icon: 'folder-o' },
   { path: '/war', title: '报警记录', icon: 'folder-o' },
-  { path: '/peifang', title: '配方管理', icon: 'folder-o' }
+  { path: '/peifang', title: '配方管理', icon: 'folder-o' },
+  {
+    title: '综合数据管理',
+    icon: 'folder-o',
+    children: [
+      { path: '/cpzs', title: '产品追溯' },
+      {
+        title: '历史数据',
+        icon: 'folder-o',
+        children: [
+          { path: '/scsj', title: '生产数据' },
+          { path: '/plsj', title: '配料数据' }
+        ]
+      }
+    ]
+  }
 ])

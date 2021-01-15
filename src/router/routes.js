@@ -166,6 +166,33 @@ const frameIn = [
         },
         component: _import('demo/feifang')
       },
+      {
+        path: 'cpzs',
+        name: 'cpzs',
+        meta: {
+          title: '产品追溯',
+          auth: true
+        },
+        component: _import('demo/data/cpzs')
+      },
+      {
+        path: 'plsj',
+        name: 'plsj',
+        meta: {
+          title: '配料数据',
+          auth: true
+        },
+        component: _import('demo/data/plsj')
+      },
+      {
+        path: 'scsj',
+        name: 'scsj',
+        meta: {
+          title: '生产数据',
+          auth: true
+        },
+        component: _import('demo/data/scsj')
+      },
       // 系统 前端日志
       {
         path: 'log',
