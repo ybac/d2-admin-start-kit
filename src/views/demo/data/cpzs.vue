@@ -19,22 +19,6 @@
           <span v-else>{{scope.row[v.field]}}</span>
         </template>
       </el-table-column>
-      <el-table-column label="操作" width="130">
-        <template slot-scope="scope">
-          <span class="el-tag el-tag--info el-tag--mini" style="cursor: pointer;" @click="pwdChange(scope.row,scope.$index,true)">
-            {{scope.row.isSet?'保存':"修改"}}
-          </span>
-          <span class="el-tag el-tag--info el-tag--mini" style="cursor: pointer;" @click="addMasterUser(scope.$index)">
-            插入
-          </span>
-          <span v-if="!scope.row.isSet" class="el-tag el-tag--danger el-tag--mini" style="cursor: pointer;" @click="del(scope.$index)">
-            删除
-          </span>
-          <span v-else class="el-tag  el-tag--mini" style="cursor: pointer;" @click="pwdChange(scope.row,scope.$index,false)">
-            取消
-          </span>
-        </template>
-      </el-table-column>
     </el-table>
   </d2-container>
 </template>
@@ -59,22 +43,64 @@ export default {
       },
       tableData: [{
         a: '2020-11-10 10:00:12',
-        b: '1：原材料出库2：1号产线2号工位进行加工3：产品加工完成，送入9号成品库'
+        b: '原材料出库'
       }, {
         a: '2020-11-10 10:01:56',
-        b: '1：原材料出库2：3号产线4号工位进行加工3：产品加工完成，送入6号成品库'
+        b: '3号产线4号工位进行加工'
       }, {
         a: '2020-11-10 10:03:12',
-        b: '1：原材料出库2：5号产线3号工位进行加工3：产品加工完成，送入6号成品库'
+        b: '产品加工完成，送入6号成品库'
+      }, {
+        a: '2020-11-10 10:00:12',
+        b: '原材料出库'
+      }, {
+        a: '2020-11-10 10:01:56',
+        b: '3号产线4号工位进行加工'
+      }, {
+        a: '2020-11-10 10:03:12',
+        b: '产品加工完成，送入6号成品库'
       }, {
         a: '2020-11-10 10:04:56',
-        b: '1：原材料出库2：3号产线4号工位进行加工3：产品加工完成，送入7号成品库'
+        b: '原材料出库'
       }, {
         a: '2020-11-10 10:06:12',
-        b: '1：原材料出库2：6号产线5号工位进行加工3：产品加工完成，送入9号成品库'
+        b: '6号产线5号工位进行加工'
       }, {
         a: '2020-11-10 10:07:56',
-        b: '1：原材料出库2：7号产线2号工位进行加工3：产品加工完成，送入7号成品库'
+        b: '6号产线7号工位进行加工'
+      }, {
+        a: '2020-11-10 10:09:56',
+        b: '产品加工完成，送入7号成品库'
+      }, {
+        a: '2020-11-10 10:04:56',
+        b: '原材料出库'
+      }, {
+        a: '2020-11-10 10:06:12',
+        b: '6号产线5号工位进行加工'
+      }, {
+        a: '2020-11-10 10:07:56',
+        b: '6号产线7号工位进行加工'
+      }, {
+        a: '2020-11-10 10:09:56',
+        b: '产品加工完成，送入7号成品库'
+      }, {
+        a: '2020-11-10 10:11:56',
+        b: '原材料出库'
+      }, {
+        a: '2020-11-10 10:13:56',
+        b: '7号产线2号工位进行加工'
+      }, {
+        a: '2020-11-10 10:15:56',
+        b: '产品加工完成，送入9号成品库'
+      }, {
+        a: '2020-11-10 10:11:56',
+        b: '原材料出库'
+      }, {
+        a: '2020-11-10 10:13:56',
+        b: '7号产线2号工位进行加工'
+      }, {
+        a: '2020-11-10 10:15:56',
+        b: '产品加工完成，送入9号成品库'
       }],
       master_user: {
         sel: null, // 选中行
@@ -90,17 +116,31 @@ export default {
     onSubmit () {
       console.log('submit!')
       this.master_user.data = []
-      if (this.formInline.date1 === '1#设备') {
+      if (this.formInline.date1 === 'CP001') {
         this.master_user.data.push(this.tableData[0])
         this.master_user.data.push(this.tableData[1])
-      }
-      if (this.formInline.date1 === '2#设备') {
         this.master_user.data.push(this.tableData[2])
         this.master_user.data.push(this.tableData[3])
-      }
-      if (this.formInline.date1 === '3#设备') {
         this.master_user.data.push(this.tableData[4])
         this.master_user.data.push(this.tableData[5])
+      }
+      if (this.formInline.date1 === 'CP002') {
+        this.master_user.data.push(this.tableData[6])
+        this.master_user.data.push(this.tableData[7])
+        this.master_user.data.push(this.tableData[8])
+        this.master_user.data.push(this.tableData[9])
+        this.master_user.data.push(this.tableData[10])
+        this.master_user.data.push(this.tableData[11])
+        this.master_user.data.push(this.tableData[12])
+        this.master_user.data.push(this.tableData[13])
+      }
+      if (this.formInline.date1 === 'CP003') {
+        this.master_user.data.push(this.tableData[14])
+        this.master_user.data.push(this.tableData[15])
+        this.master_user.data.push(this.tableData[16])
+        this.master_user.data.push(this.tableData[17])
+        this.master_user.data.push(this.tableData[18])
+        this.master_user.data.push(this.tableData[19])
       }
     },
     tableRowClassName ({ row, rowIndex }) {

@@ -1,18 +1,21 @@
 <template>
   <d2-container>
-    <!-- <el-form :inline="true" :model="formInline" class="demo-form-inline">
-      <el-form-item label="配方名称">
-        <el-input v-model="formInline.date1"></el-input>
+    <el-form :inline="true" :model="formInline" class="demo-form-inline">
+      <el-form-item label="时间">
+        <el-date-picker
+          v-model="formInline.date1"
+          type="date"
+          value-format="yyyy-MM-dd">
+        </el-date-picker>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="onSubmit">查询</el-button>
       </el-form-item>
-    </el-form> -->
+    </el-form>
     <el-table
       :data="master_user.data"
       border
       stripe
-      height="500"
       highlight-current-row
       :row-class-name="tableRowClassName"
       style="width: 100%">
@@ -169,7 +172,7 @@
           <span v-else>{{scope.row.b}}</span>
         </template>
       </el-table-column>
-      <el-table-column
+      <!-- <el-table-column
         label="操作"
         width="150">
         <template slot-scope="scope">
@@ -186,7 +189,7 @@
             取消
           </span>
         </template>
-      </el-table-column>
+      </el-table-column> -->
     </el-table>
     <!-- <div class="el-table-add-row" style="width: 99.2%;" @click="add()"><span>+ 添加</span></div> -->
   </d2-container>
@@ -255,7 +258,7 @@ export default {
         ],
         data: [{
           a: '1',
-          b: '2021-01-11 10:04:00',
+          b: '2021-01-12 10:04:00',
           c1: '34 ℃',
           c2: '33 P',
           d1: '14 ℃',
@@ -268,7 +271,7 @@ export default {
           g2: '22 P'
         }, {
           a: '2',
-          b: '2021-01-11 10:03:00',
+          b: '2021-01-12 10:03:00',
           c1: '36 ℃',
           c2: '33 P',
           d1: '34 ℃',
@@ -281,7 +284,7 @@ export default {
           g2: '22 P'
         }, {
           a: '3',
-          b: '2021-01-11 10:02:00',
+          b: '2021-01-12 10:02:00',
           c1: '34 ℃',
           c2: '21 P',
           d1: '43 ℃',
@@ -294,7 +297,7 @@ export default {
           g2: '32 P'
         }, {
           a: '4',
-          b: '2021-01-11 10:01:00',
+          b: '2021-01-12 10:01:00',
           c1: '24 ℃',
           c2: '33 P',
           d1: '27 ℃',
@@ -307,6 +310,71 @@ export default {
           g2: '22 P'
         }, {
           a: '5',
+          b: '2021-01-11 10:00:00',
+          c1: '34 ℃',
+          c2: '33 P',
+          d1: '24 ℃',
+          d2: '23.34 P',
+          e1: '31 ℃',
+          e2: '88 P',
+          f1: '32 ℃',
+          f2: '42 P',
+          g1: '45 ℃',
+          g2: '22 P'
+        }, {
+          a: '6',
+          b: '2021-01-11 10:00:00',
+          c1: '34 ℃',
+          c2: '33 P',
+          d1: '24 ℃',
+          d2: '23.34 P',
+          e1: '31 ℃',
+          e2: '88 P',
+          f1: '32 ℃',
+          f2: '42 P',
+          g1: '45 ℃',
+          g2: '22 P'
+        }, {
+          a: '7',
+          b: '2021-01-11 10:00:00',
+          c1: '34 ℃',
+          c2: '33 P',
+          d1: '24 ℃',
+          d2: '23.34 P',
+          e1: '31 ℃',
+          e2: '88 P',
+          f1: '32 ℃',
+          f2: '42 P',
+          g1: '45 ℃',
+          g2: '22 P'
+        }, {
+          a: '8',
+          b: '2021-01-11 10:00:00',
+          c1: '34 ℃',
+          c2: '33 P',
+          d1: '24 ℃',
+          d2: '23.34 P',
+          e1: '31 ℃',
+          e2: '88 P',
+          f1: '32 ℃',
+          f2: '42 P',
+          g1: '45 ℃',
+          g2: '22 P'
+        }, {
+          a: '9',
+          b: '2021-01-11 10:00:00',
+          c1: '34 ℃',
+          c2: '33 P',
+          d1: '24 ℃',
+          d2: '23.34 P',
+          e1: '31 ℃',
+          e2: '88 P',
+          f1: '32 ℃',
+          f2: '42 P',
+          g1: '45 ℃',
+          g2: '22 P'
+        }, {
+          a: '10',
           b: '2021-01-11 10:00:00',
           c1: '34 ℃',
           c2: '33 P',
@@ -357,7 +425,145 @@ export default {
       this.master_user.data.push(j)
       this.master_user.sel = JSON.parse(JSON.stringify(j))
     },
-    onSubmit () {},
+    onSubmit () {
+      if (this.formInline.date1 === '2021-01-12') {
+        this.master_user.data = [{
+          a: '1',
+          b: '2021-01-12 10:04:00',
+          c1: '34 ℃',
+          c2: '33 P',
+          d1: '14 ℃',
+          d2: '23.34 P',
+          e1: '12 ℃',
+          e2: '88 P',
+          f1: '43 ℃',
+          f2: '42 P',
+          g1: '47 ℃',
+          g2: '22 P'
+        }, {
+          a: '2',
+          b: '2021-01-12 10:03:00',
+          c1: '36 ℃',
+          c2: '33 P',
+          d1: '34 ℃',
+          d2: '23.34 P',
+          e1: '45 ℃',
+          e2: '88 P',
+          f1: '32 ℃',
+          f2: '42 P',
+          g1: '45 ℃',
+          g2: '22 P'
+        }, {
+          a: '3',
+          b: '2021-01-12 10:02:00',
+          c1: '34 ℃',
+          c2: '21 P',
+          d1: '43 ℃',
+          d2: '23.34 P',
+          e1: '33 ℃',
+          e2: '88 P',
+          f1: '35 ℃',
+          f2: '42 P',
+          g1: '34 ℃',
+          g2: '32 P'
+        }, {
+          a: '4',
+          b: '2021-01-12 10:01:00',
+          c1: '24 ℃',
+          c2: '33 P',
+          d1: '27 ℃',
+          d2: '23.34 P',
+          e1: '53 ℃',
+          e2: '88 P',
+          f1: '33 ℃',
+          f2: '42 P',
+          g1: '24 ℃',
+          g2: '22 P'
+        }]
+      } else if (this.formInline.date1 === '2021-01-11') {
+        this.master_user.data = [{
+          a: '5',
+          b: '2021-01-11 10:00:00',
+          c1: '34 ℃',
+          c2: '33 P',
+          d1: '24 ℃',
+          d2: '23.34 P',
+          e1: '31 ℃',
+          e2: '88 P',
+          f1: '32 ℃',
+          f2: '42 P',
+          g1: '45 ℃',
+          g2: '22 P'
+        }, {
+          a: '6',
+          b: '2021-01-11 10:00:00',
+          c1: '34 ℃',
+          c2: '33 P',
+          d1: '24 ℃',
+          d2: '23.34 P',
+          e1: '31 ℃',
+          e2: '88 P',
+          f1: '32 ℃',
+          f2: '42 P',
+          g1: '45 ℃',
+          g2: '22 P'
+        }, {
+          a: '7',
+          b: '2021-01-11 10:00:00',
+          c1: '34 ℃',
+          c2: '33 P',
+          d1: '24 ℃',
+          d2: '23.34 P',
+          e1: '31 ℃',
+          e2: '88 P',
+          f1: '32 ℃',
+          f2: '42 P',
+          g1: '45 ℃',
+          g2: '22 P'
+        }, {
+          a: '8',
+          b: '2021-01-11 10:00:00',
+          c1: '34 ℃',
+          c2: '33 P',
+          d1: '24 ℃',
+          d2: '23.34 P',
+          e1: '31 ℃',
+          e2: '88 P',
+          f1: '32 ℃',
+          f2: '42 P',
+          g1: '45 ℃',
+          g2: '22 P'
+        }, {
+          a: '9',
+          b: '2021-01-11 10:00:00',
+          c1: '34 ℃',
+          c2: '33 P',
+          d1: '24 ℃',
+          d2: '23.34 P',
+          e1: '31 ℃',
+          e2: '88 P',
+          f1: '32 ℃',
+          f2: '42 P',
+          g1: '45 ℃',
+          g2: '22 P'
+        }, {
+          a: '10',
+          b: '2021-01-11 10:00:00',
+          c1: '34 ℃',
+          c2: '33 P',
+          d1: '24 ℃',
+          d2: '23.34 P',
+          e1: '31 ℃',
+          e2: '88 P',
+          f1: '32 ℃',
+          f2: '42 P',
+          g1: '45 ℃',
+          g2: '22 P'
+        }]
+      } else {
+        this.master_user.data = []
+      }
+    },
     // 读取表格数据
     readMasterUser () {
       // 根据实际情况，自己改下啊

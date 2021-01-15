@@ -1,5 +1,17 @@
 <template>
   <d2-container>
+    <el-form :inline="true" :model="formInline" class="demo-form-inline">
+      <el-form-item label="时间">
+        <el-date-picker
+          v-model="formInline.date1"
+          type="date"
+          value-format="yyyy-MM-dd">
+        </el-date-picker>
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary" @click="onSubmit">查询</el-button>
+      </el-form-item>
+    </el-form>
     <el-table :data="master_user.data" border style="width: 100%" highlight-current-row :row-class-name="tableRowClassName">
       <!-- <el-table-column type="index"></el-table-column> -->
       <el-table-column v-for="(v, i) in master_user.columns" :key="i" :prop="v.field" :label="v.title" :width="v.width">
@@ -9,22 +21,6 @@
             </el-input>
           </span>
           <span v-else>{{scope.row[v.field]}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="操作">
-        <template slot-scope="scope">
-          <span class="el-tag el-tag--info el-tag--mini" style="cursor: pointer;" @click="pwdChange(scope.row,scope.$index,true)">
-            {{scope.row.isSet?'保存':"修改"}}
-          </span>
-          <span class="el-tag el-tag--info el-tag--mini" style="cursor: pointer;" @click="addMasterUser(scope.$index)">
-            插入
-          </span>
-          <span v-if="!scope.row.isSet" class="el-tag el-tag--danger el-tag--mini" style="cursor: pointer;" @click="del(scope.$index)">
-            删除
-          </span>
-          <span v-else class="el-tag  el-tag--mini" style="cursor: pointer;" @click="pwdChange(scope.row,scope.$index,false)">
-            取消
-          </span>
         </template>
       </el-table-column>
     </el-table>
@@ -39,7 +35,7 @@ export default {
       formInline: {
         user: '',
         region: '',
-        date1: [new Date(2020, 10, 10, 10, 10), new Date(2020, 10, 11, 10, 10)]
+        date1: ''
       },
       generateId: {
         _count: 1,
@@ -62,7 +58,7 @@ export default {
         ],
         data: [{
           a: '1#料仓',
-          b: '2020-11-10 04：33：11',
+          b: '2020-11-11 04：33：11',
           c: '56 KG',
           d: '55.97KG',
           e: '0.03KG',
@@ -76,21 +72,21 @@ export default {
           f: 'PF002'
         }, {
           a: '3#料仓',
-          b: '2020-11-10 04：44：11',
+          b: '2020-11-11 04：44：11',
           c: '32KG',
           d: '32KG',
           e: '0',
           f: 'PF003'
         }, {
           a: '4#料仓',
-          b: '2020-11-03 01：14：56',
+          b: '2020-11-11 01：14：56',
           c: '49KG',
           d: '48.7',
           e: '0.3KG',
           f: 'PF004'
         }, {
           a: '5#料仓',
-          b: '2020-11-03 14：34：52',
+          b: '2020-11-11 14：34：52',
           c: '50KG',
           d: '50.08KG',
           e: '0.08KG',
@@ -102,13 +98,118 @@ export default {
           d: '89.02KG',
           e: '0.02KG',
           f: 'PF006'
+        }, {
+          a: '7#料仓',
+          b: '2020-12-02 23：32：18',
+          c: '89KG',
+          d: '89.02KG',
+          e: '0.02KG',
+          f: 'PF007'
+        }, {
+          a: '8#料仓',
+          b: '2020-12-02 23：32：18',
+          c: '89KG',
+          d: '89.02KG',
+          e: '0.02KG',
+          f: 'PF008'
+        }, {
+          a: '9#料仓',
+          b: '2020-12-02 23：32：18',
+          c: '89KG',
+          d: '89.02KG',
+          e: '0.02KG',
+          f: 'PF009'
+        }, {
+          a: '10#料仓',
+          b: '2020-12-02 23：32：18',
+          c: '89KG',
+          d: '89.02KG',
+          e: '0.02KG',
+          f: 'PF010'
         }]
       }
     }
   },
   methods: {
     onSubmit () {
-      console.log('submit!')
+      if (this.formInline.date1 === '2020-11-11') {
+        this.master_user.data = [{
+          a: '1#料仓',
+          b: '2020-11-11 04：33：11',
+          c: '56 KG',
+          d: '55.97KG',
+          e: '0.03KG',
+          f: 'PF001'
+        }, {
+          a: '3#料仓',
+          b: '2020-11-11 04：44：11',
+          c: '32KG',
+          d: '32KG',
+          e: '0',
+          f: 'PF003'
+        }, {
+          a: '4#料仓',
+          b: '2020-11-11 01：14：56',
+          c: '49KG',
+          d: '48.7',
+          e: '0.3KG',
+          f: 'PF004'
+        }, {
+          a: '5#料仓',
+          b: '2020-11-11 14：34：52',
+          c: '50KG',
+          d: '50.08KG',
+          e: '0.08KG',
+          f: 'PF005'
+        }]
+      } else if (this.formInline.date1 === '2020-12-02') {
+        this.master_user.data = [{
+          a: '2#料仓',
+          b: '2020-12-02 23：32：18',
+          c: '77KG',
+          d: '77.1KG',
+          e: '0.1KG',
+          f: 'PF002'
+        }, {
+          a: '6#料仓',
+          b: '2020-12-02 23：32：18',
+          c: '89KG',
+          d: '89.02KG',
+          e: '0.02KG',
+          f: 'PF006'
+        }, {
+          a: '7#料仓',
+          b: '2020-12-02 23：32：18',
+          c: '89KG',
+          d: '89.02KG',
+          e: '0.02KG',
+          f: 'PF007'
+        }, {
+          a: '8#料仓',
+          b: '2020-12-02 23：32：18',
+          c: '89KG',
+          d: '89.02KG',
+          e: '0.02KG',
+          f: 'PF008'
+        }, {
+          a: '9#料仓',
+          b: '2020-12-02 23：32：18',
+          c: '89KG',
+          d: '89.02KG',
+          e: '0.02KG',
+          f: 'PF009'
+        }, {
+          a: '10#料仓',
+          b: '2020-12-02 23：32：18',
+          c: '89KG',
+          d: '89.02KG',
+          e: '0.02KG',
+          f: 'PF010'
+        }]
+      } else {
+        this.master_user.data = []
+      }
+      console.log(this.formInline.date1)
     },
     tableRowClassName ({ row, rowIndex }) {
       if (rowIndex % 2 === 0) {
